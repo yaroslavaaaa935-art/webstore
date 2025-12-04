@@ -1,0 +1,225 @@
+/* Модальное окно корзины */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal {
+  width: 100%;
+  max-width: 760px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(2,6,23,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Header модального окна */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e6e7ee;
+  padding-bottom: 8px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.modal-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Список товаров в корзине */
+.cart-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: background 0.2s;
+}
+
+.cart-item:hover {
+  background: #f0f0f0;
+}
+
+.cart-item img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/*  Количество и кнопки управления */
+.qty-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.qty-controls button {
+  background: #eee;
+  color: #111;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.qty-controls button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/*  Промокод  */
+.promo-section {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.promo-row {
+  display: flex;
+  gap: 8px;
+}
+
+.promo-row input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e6e7ee;
+  font-size: 14px;
+}
+
+.promo-row button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.promo-row button:hover {
+  background: #511B62;
+}
+
+/*  Итоговые суммы  */
+.totals-section {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.totals div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cart-actions button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.cart-actions button#clearCart {
+  background: #eee;
+  color: #111;
+}
+
+.cart-actions button#clearCart:hover {
+  background: #ccc;
+}
+
+.cart-actions button#checkout {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cart-actions button#checkout:hover {
+  background: #511B62;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Стили для модальных окон подтверждения и уведомлений */
+.modal-body {
+  padding: 16px 0;
+  line-height: 1.5;
+}
+
+.modal-body p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e6e7ee;
+}
+
+.modal-actions button {
+  min-width: 100px;
+}
+
+#confirmModal .modal,
+#alertModal .modal {
+  max-width: 400px;
+}
+
+#alertModal .modal-actions {
+  justify-content: center;
+}

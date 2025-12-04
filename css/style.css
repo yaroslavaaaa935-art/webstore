@@ -1,0 +1,209 @@
+:root {
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --accent: #743089;;
+  --muted: #6b7280;
+  --radius: 12px;
+}
+
+/* Шрифты */
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../fonts/HelveticaNeue-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Miamanueva';
+  src: url('../fonts/miamanueva.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Базовые стили */
+* {
+  box-sizing: border-box;
+  font-family: 'HelveticaNeue';
+}
+
+body {
+  margin: 0;
+  font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: #111;
+  line-height: 1.6;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 30px auto;
+
+}
+
+/* Каталог */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+
+h2 {
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+/* Боковое меню */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+}
+
+/* Админ панель */
+.admin {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin h3 {
+  margin-top: 0;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1 1 100%;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e6e7ee;
+  font-size: 14px;
+}
+
+.form-row input[type="number"] {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-actions button {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Модальные окна */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 760px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(2,6,23,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.qty-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.qty-controls button {
+  background: #eee;
+  color: #111;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.promo-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
