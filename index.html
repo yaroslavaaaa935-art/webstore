@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Julwerry</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/product-card.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cart.css">
+</head>
+<body>
+  <header>
+    <h1>Julwerry</h1>
+    <div class="controls">
+      <div class="muted">Количество товаров в каталог: <span id="productCount">0</span></div>
+      <button class="cart-btn" id="openCart">Корзина<span class="cart-count" id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <h2>Товары</h2>
+      </div>
+      <div class="catalog" id="catalog"></div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="admin card">
+        <h3>Добавление товара в каталог</h3>
+        <div class="form-row">
+          <input id="pName" placeholder="Название" />
+          <input id="pPrice" placeholder="Цена, ₽" type="number" />
+        </div>
+        <div class="form-row">
+          <input id="pImage" placeholder="URL изображения (опционально)" />
+        </div>
+        <div class="form-row">
+          <textarea id="pDesc" placeholder="Короткое описание" rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button id="addProduct">Добавить товар</button>
+          <button class="secondary" id="resetDemo">Загрузить демо товары</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Краткая сводка корзины</h4>
+        <div class="totals">
+          <div>Позиции: <strong id="summaryItems">0</strong></div>
+          <div>Сумма: <strong id="summarySum">0 ₽</strong></div>
+          <div class="muted">Перейдите в Корзину для подробностей</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Модальное окно корзины -->
+  <div class="modal-backdrop" id="cartModal">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h3>Корзина</h3>
+        <div class="modal-controls">
+          <div class="muted" id="modalCount">0 поз.</div>
+          <button id="closeCart" class="secondary">Закрыть</button>
+        </div>
+      </div>
+
+      <div class="cart-list" id="cartList"></div>
+
+      <div class="cart-summary">
+        <div class="promo-section">
+          <div class="promo-row">
+            <input id="promoInput" placeholder="Промокод (например: SALE10)" />
+            <button id="applyPromo">Применить</button>
+          </div>
+          <div id="promoMessage" class="muted"></div>
+        </div>
+        <div class="totals-section">
+          <div class="totals">
+            <div>Подытог: <strong id="subTotal">0 ₽</strong></div>
+            <div>Скидка: <strong id="discountAmount">0 ₽</strong></div>
+            <div>Доставка: <strong id="shipping">0 ₽</strong></div>
+            <div style="font-size:18px">Итого: <strong id="grandTotal">0 ₽</strong></div>
+            <div class="cart-actions">
+              <button id="clearCart" class="secondary">Очистить</button>
+              <button id="checkout">Оформить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>© Julwerry 2025 all rights reserved</footer>
+  <!-- Подключение JS с defer -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <!-- Модальное окно подтверждения -->
+<div class="modal-backdrop" id="confirmModal">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <h3>Подтверждение</h3>
+    </div>
+    <div class="modal-body">
+      <p id="confirmMessage">Вы уверены?</p>
+    </div>
+    <div class="modal-actions">
+      <button id="confirmCancel" class="secondary">Отмена</button>
+      <button id="confirmOk">Подтвердить</button>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно уведомления -->
+<div class="modal-backdrop" id="alertModal">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <h3>Уведомление</h3>
+    </div>
+    <div class="modal-body">
+      <p id="alertMessage">Сообщение</p>
+    </div>
+    <div class="modal-actions">
+      <button id="alertOk">OK</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
